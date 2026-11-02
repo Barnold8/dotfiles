@@ -34,3 +34,6 @@ alias updateConfigs="yes | updateFishConfig && yes | updateHyprlandConfig && cd 
 alias diskUsage="ncdu"
 alias isVPN="sudo systemctl status mullvad-daemon"
 alias updateBedTime="updatePackages && bedTime"
+alias viewSnapshots="sudo snapper list"
+alias viewSnapshotSettings="sudo snapper -c root get-config"
+alias listDisks="sudo lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL"
