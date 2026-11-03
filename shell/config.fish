@@ -1,39 +1,11 @@
 source /usr/share/cachyos-fish-config/cachyos-config.fish
 
-# overwrite greeting
-# potentially disabling fastfetch
-#function fish_greeting
-#    # smth smth
-#end
-
-
-alias cls="clear"
+# Edit commands
 alias editFish="nano ~/.config/fish/config.fish"
 alias editFishVIM="nvim ~/.config/fish/config.fish"
-alias refresh="source ~/.config/fish/config.fish"
-alias bedTime="~/Code/MassScripts/Linux/bedtime.sh"
-alias newKitty="~./Code/MassScripts/Linux/catWallpaper.sh noctalia"
-alias encdcr="~/Code/MassScripts/Linux/encdcr.sh"
-alias getGitKey='~/Code/MassScripts/Linux/encdcr.sh -d ~/gitKey.aes && cat ~/gitKey.aes.unencrypted | wl-copy && rm ~/gitKey.aes.unencrypted'
-alias gpuUsage="gpustat -i 1"
-alias cleanSystem="sudo pacman -Rns (pacman -Qdtq)"
-alias getDefaultGateway="ip r | grep ^def"
 alias editBinds="nvim ~/.config/hypr/hyprland.lua"
 alias editBindsLegacy="nvim ~/.config/hypr/hyprland.conf"
-alias flushClipboard="echo | wl-copy"
-alias pushToGit="getGitKey && git push && flushClipboard"
-alias timer="~/Code/TerminalAlarm/build/Alarm"
-alias gitList="git ls-files . --exclude-standard --others"
-alias gotoScripts="cd ~/Code/MassScripts/Linux"
-alias printAliases="cat ~/.config/fish/config.fish"
-alias rebootNetwork="sudo systemctl restart NetworkManager"
-alias diskUsage="ncdu"
-alias isVPN="sudo systemctl status mullvad-daemon"
-alias viewSnapshots="sudo snapper list"
-alias viewSnapshotSettings="sudo snapper -c root get-config"
 alias editSnapshotSetting="sudo nvim /etc/snapper/configs/root"
-alias listDisks="sudo lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL"
-
 
 # Update commands
 alias updateFishConfig="cp -i ~/.config/fish/config.fish ~/Code/Dotfiles/shell" # note for this and the next line, these scripts will have to be moved into their respective folders on a fresh install
@@ -42,3 +14,43 @@ alias updateConfigs="yes | updateFishConfig && yes | updateHyprlandConfig && cd 
 
 alias updatePackages="sudo pacman -Syu --noconfirm"
 alias updateBedTime="updatePackages && bedTime"
+
+# Shell commands
+alias cls="clear"
+alias refresh="source ~/.config/fish/config.fish"
+alias printAliases="cat ~/.config/fish/config.fish"
+
+# System commands
+
+	# DISK
+alias viewSnapshots="sudo snapper list"
+alias viewSnapshotSettings="sudo snapper -c root get-config"
+alias listDisks="sudo lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL"
+alias cleanSystem="sudo pacman -Rns (pacman -Qdtq)"
+alias diskUsage="ncdu"
+
+	# GPU
+alias gpuUsage="gpustat -i 1"
+	# NETWORK
+alias rebootNetwork="sudo systemctl restart NetworkManager"
+alias isVPN="sudo systemctl status mullvad-daemon"
+alias getDefaultGateway="ip r | grep ^def"
+
+
+# Programs
+alias timer="~/Code/TerminalAlarm/build/Alarm"
+
+# What I need for GIT
+alias encdcr="~/Code/MassScripts/Linux/encdcr.sh"
+alias getGitKey='~/Code/MassScripts/Linux/encdcr.sh -d ~/gitKey.aes && cat ~/gitKey.aes.unencrypted | wl-copy && rm ~/gitKey.aes.unencrypted'
+alias flushClipboard="echo | wl-copy"
+alias pushToGit="getGitKey && git push && flushClipboard"
+alias gitList="git ls-files . --exclude-standard --others"
+
+
+# Lazyness supplements
+alias bedTime="~/Code/MassScripts/Linux/bedtime.sh"
+alias gotoScripts="cd ~/Code/MassScripts/Linux"
+
+# MISC
+alias newKitty="~./Code/MassScripts/Linux/catWallpaper.sh noctalia"
