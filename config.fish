@@ -16,7 +16,6 @@ alias newKitty="~./Code/MassScripts/Linux/catWallpaper.sh"
 alias encdcr="~/Code/MassScripts/Linux/encdcr.sh"
 alias getGitKey='~/Code/MassScripts/Linux/encdcr.sh -d ~/gitKey.aes && cat ~/gitKey.aes.unencrypted | wl-copy && rm ~/gitKey.aes.unencrypted'
 alias gpuUsage="gpustat -i 1"
-alias updatePackages="sudo pacman -Syu --noconfirm"
 alias cleanSystem="sudo pacman -Rns (pacman -Qdtq)"
 alias getDefaultGateway="ip r | grep ^def"
 alias editBinds="nvim ~/.config/hypr/hyprland.lua"
@@ -25,16 +24,21 @@ alias flushClipboard="echo | wl-copy"
 alias pushToGit="getGitKey && git push && flushClipboard"
 alias timer="~/Code/TerminalAlarm/build/Alarm"
 alias gitList="git ls-files . --exclude-standard --others"
-alias updateFishConfig="cp -i ~/.config/fish/config.fish ~/Code/Dotfiles" # note for this and the next line, these scripts will have to be moved into their respective folders on a fresh install
-alias updateHyprlandConfig="cp -i ~/.config/hypr/hyprland.conf ~/Code/Dotfiles"
 alias gotoScripts="cd ~/Code/MassScripts/Linux"
 alias printAliases="cat ~/.config/fish/config.fish"
 alias rebootNetwork="sudo systemctl restart NetworkManager"
-alias updateConfigs="yes | updateFishConfig && yes | updateHyprlandConfig && cd ~/Code/Dotfiles && git add . && git commit -m \"Update configs\" && pushToGit && cd -"
 alias diskUsage="ncdu"
 alias isVPN="sudo systemctl status mullvad-daemon"
-alias updateBedTime="updatePackages && bedTime"
 alias viewSnapshots="sudo snapper list"
 alias viewSnapshotSettings="sudo snapper -c root get-config"
 alias editSnapshotSetting="sudo nvim /etc/snapper/configs/root"
 alias listDisks="sudo lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL"
+
+
+# Update commands
+alias updateFishConfig="cp -i ~/.config/fish/config.fish ~/Code/Dotfiles" # note for this and the next line, these scripts will have to be moved into their respective folders on a fresh install
+alias updateHyprlandConfig="cp -i ~/.config/hypr/hyprland.conf ~/Code/Dotfiles && cp -i ~/.config/hypr/config/inputs.lua ~/Code/Dotfiles"
+alias updateConfigs="yes | updateFishConfig && yes | updateHyprlandConfig && cd ~/Code/Dotfiles && git add . && git commit -m \"Update configs\" && pushToGit && cd -"
+
+alias updatePackages="sudo pacman -Syu --noconfirm"
+alias updateBedTime="updatePackages && bedTime"
