@@ -1,8 +1,11 @@
 source /usr/share/cachyos-fish-config/cachyos-config.fish
 
+
 # Edit commands
 alias editFishVIM="nvim ~/.config/fish/config.fish"
-alias editBindsHyprland="nvim ~/.config/hypr/hyprland.conf"
+alias editHyprlandConf="nvim ~/.config/hypr/hyprland.conf"
+alias editHyprlandLua="nvim ~/.config/hypr/hyprland.lua"
+alias editHyprlandBinds="nvim ~/.config/hypr/config/inputs.lua"
 alias editSnapshotSetting="sudo nvim /etc/snapper/configs/root"
 
 # Update commands
@@ -51,3 +54,4 @@ alias updateBedTime="updatePackages && bedTime"
 
 # MISC
 alias newKitty="~./Code/MassScripts/Linux/catWallpaper.sh noctalia"
+alias changeWallpaper="~/Code/MassScripts/Linux/changeWallpaper.sh ~/Downloads/Wallpapers noctalia"
