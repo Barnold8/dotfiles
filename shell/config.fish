@@ -42,6 +42,7 @@ alias gpuUsage="gpustat -i 1"
 alias rebootNetwork="sudo systemctl restart NetworkManager"
 alias isVPN="sudo systemctl status mullvad-daemon"
 alias getDefaultGateway="ip r | grep ^def"
+alias getIPaddrs="ip address | grep -oP inet [0-9]{1,}[\.][0-9]{1,}[\.][0-9]{1,}[\.][0-9]{1,}"
 
 # Programs
 alias timer="~/Code/TerminalAlarm/build/Alarm"
