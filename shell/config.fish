@@ -26,11 +26,18 @@ alias printAliases="cat ~/.config/fish/config.fish"
 alias viewSnapshots="sudo snapper list"
 alias viewSnapshotSettings="sudo snapper -c root get-config"
 alias listDisks="sudo lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL"
-alias cleanSystem="sudo pacman -Rns (pacman -Qdtq)"
+alias listCache="sudo du -sh * | sort -h"
+
+alias removeOrphans="sudo pacman -Rns (pacman -Qdtq)"
+alias removePackageCache="sudo pacman -Sc"
+alias removeTrash="rm -rf ~/.local/share/Trash"
+alias cleanSysten="removeOprhans && removePackageCache && removeTrash"
+
 alias diskUsage="ncdu"
 
 	# GPU
 alias gpuUsage="gpustat -i 1"
+
 	# NETWORK
 alias rebootNetwork="sudo systemctl restart NetworkManager"
 alias isVPN="sudo systemctl status mullvad-daemon"
@@ -54,4 +61,4 @@ alias updateBedTime="updatePackages && bedTime"
 
 # MISC
 alias newKitty="~./Code/MassScripts/Linux/catWallpaper.sh noctalia"
-alias changeWallpaper="~/Code/MassScripts/Linux/changeWallpaper.sh ~/Downloads/Wallpapers noctalia"
+alias changeWallpaper="~/Code/MassScripts/Linux/changeWallpaper.sh ~/run/media/brandon/HDD/Wallpapers noctalia"
