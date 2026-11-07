@@ -19,6 +19,7 @@ alias updatePackages="sudo pacman -Syu --noconfirm"
 alias cls="clear"
 alias refresh="source ~/.config/fish/config.fish"
 alias printAliases="cat ~/.config/fish/config.fish"
+alias cmdHistory="history" # cos im on fish but if i move to a different terminal emulator, change this to a different command
 
 # System commands
 
@@ -43,9 +44,19 @@ alias rebootNetwork="sudo systemctl restart NetworkManager"
 alias isVPN="sudo systemctl status mullvad-daemon"
 alias getDefaultGateway="ip r | grep ^def"
 alias getIPaddrs="ip address | grep -oP inet [0-9]{1,}[\.][0-9]{1,}[\.][0-9]{1,}[\.][0-9]{1,}"
+alias listeningServices="ss -punat"
+
+	# SECURITY
+alias loginHistory="sudo journalctl -t gdm -t lightdm -t sshd -t sudo --since \"2 days ago\""
+alias sshConnections="sudo journalctl -u sshd.service -n 50"
+alias PAMSessions="sudo journalctl | grep -i \"session opened\""
+alias sudoHistory="sudo journalctl _COMM=sudo"
+alias sudoers="sudo grep -R 'sudo' /etc/sudoers*"
+
 
 # Programs
 alias timer="~/Code/TerminalAlarm/build/Alarm"
+alias backgroundProcesses="ps auxf"
 
 # What I need for GIT
 alias encdcr="~/Code/MassScripts/Linux/encdcr.sh"
