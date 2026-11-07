@@ -45,7 +45,7 @@ alias gpuUsage="gpustat -i 1"
 alias rebootNetwork="sudo systemctl restart NetworkManager"
 alias isVPN="sudo systemctl status mullvad-daemon"
 alias getDefaultGateway="ip r | grep ^def"
-alias getIPaddrs="ip address | grep -oP inet [0-9]{1,}[\.][0-9]{1,}[\.][0-9]{1,}[\.][0-9]{1,}"
+alias getIPaddrs="ip address | grep -oP \"inet [0-9]{1,}[\.][0-9]{1,}[\.][0-9]{1,}[\.][0-9]{1,}\""
 alias listeningServices="ss -punat"
 
 	# SECURITY
@@ -76,3 +76,5 @@ alias updateBedTime="updatePackages && bedTime"
 # MISC
 alias newKitty="~./Code/MassScripts/Linux/catWallpaper.sh noctalia"
 alias changeWallpaper="~/Code/MassScripts/Linux/changeWallpaper.sh ~/run/media/brandon/HDD/Wallpapers noctalia"
+alias listAppImages="ls -d -1 ~/Programs/AppImages/**/*.AppImage"
+
