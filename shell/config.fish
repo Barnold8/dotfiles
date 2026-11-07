@@ -35,6 +35,8 @@ alias removeTrash="rm -rf ~/.local/share/Trash"
 alias cleanSysten="removeOprhans && removePackageCache && removeTrash"
 
 alias diskUsage="ncdu"
+alias diskUsageFast="df -h"
+
 
 	# GPU
 alias gpuUsage="gpustat -i 1"
