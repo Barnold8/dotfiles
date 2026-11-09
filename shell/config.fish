@@ -75,6 +75,7 @@ alias updateBedTime="updatePackages && bedTime"
 
 # MISC
 alias newKitty="~./Code/MassScripts/Linux/catWallpaper.sh noctalia"
-alias changeWallpaper="~/Code/MassScripts/Linux/changeWallpaper.sh ~/run/media/brandon/HDD/Wallpapers noctalia"
+alias changeWallpaper="~/Code/MassScripts/Linux/changeWallpaper.sh /run/media/brandon/HDD/Wallpapers noctalia"
+alias changeWallpaperRandom="changeWallpaper -r"
 alias listAppImages="ls -d -1 ~/Programs/AppImages/**/*.AppImage"
 
