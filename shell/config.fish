@@ -9,9 +9,9 @@ alias editHyprlandBinds="nvim ~/.config/hypr/config/inputs.lua"
 alias editSnapshotSetting="sudo nvim /etc/snapper/configs/root"
 
 # Update commands
-alias updateFishConfig="cp -i ~/.config/fish/config.fish ~/Code/Dotfiles/shell  && git add . && git commit -m \"Update configs\" "" # note for this and the next line, these scripts will have to be moved into their respective folders on a fresh install
-alias updateHyprlandConfig="cp -i ~/.config/hypr/hyprland.conf ~/Code/Dotfiles/hyprland && cp -i ~/.config/hypr/config/inputs.lua ~/Code/Dotfiles/hyprland/config/ && git add . && git commit -m \"Update configs\" "
-alias updateConfigs="yes | updateFishConfig && yes | updateHyprlandConfig && cd ~/Code/Dotfiles && pushToGit cd -"
+alias updateFishConfig="cp -i ~/.config/fish/config.fish ~/Code/Dotfiles/shell " # note for this and the next line, these scripts will have to be moved into their respective folders on a fresh install
+alias updateHyprlandConfig="cp -i {~/.config/hypr/hyprland.conf,~/.config/hypr/hyprland.lua } ~/Code/Dotfiles/hyprland && cp -i ~/.config/hypr/config/inputs.lua ~/Code/Dotfiles/config"
+alias updateConfigs="yes | updateFishConfig && yes | updateHyprlandConfig && cd ~/Code/Dotfiles && git add .&& pushToGit cd -"
 
 alias updatePackages="sudo pacman -Syu --noconfirm"
 
