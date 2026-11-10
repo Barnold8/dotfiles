@@ -11,7 +11,7 @@ alias editSnapshotSetting="sudo nvim /etc/snapper/configs/root"
 # Update commands
 alias updateFishConfig="cp -i ~/.config/fish/config.fish ~/Code/Dotfiles/shell " # note for this and the next line, these scripts will have to be moved into their respective folders on a fresh install
 alias updateHyprlandConfig="cp -i {~/.config/hypr/hyprland.conf,~/.config/hypr/hyprland.lua } ~/Code/Dotfiles/hyprland && cp -i ~/.config/hypr/config/inputs.lua ~/Code/Dotfiles/config"
-alias updateConfigs="yes | updateFishConfig && yes | updateHyprlandConfig && cd ~/Code/Dotfiles && git add .&& pushToGit cd -"
+alias updateConfigs="yes | updateFishConfig && yes | updateHyprlandConfig && cd ~/Code/Dotfiles && git add . && git commit -m \"Update Configs\" && pushToGit && cd -"
 
 alias updatePackages="sudo pacman -Syu --noconfirm"
 
@@ -46,6 +46,7 @@ alias rebootNetwork="sudo systemctl restart NetworkManager"
 alias isVPN="sudo systemctl status mullvad-daemon"
 alias getDefaultGateway="ip r | grep ^def"
 alias getIPaddrs="ip address | grep -oP \"inet [0-9]{1,}[\.][0-9]{1,}[\.][0-9]{1,}[\.][0-9]{1,}\""
+alias getRouterMAC="nmcli device wifi list | grep -oP \"^\*\s+\K[a-zA-Z0-9]{2}(:[a-zA-Z0-9]{2}){5}\""
 alias listeningServices="ss -punat"
 
 	# SECURITY
