@@ -20,10 +20,18 @@ alias cls="clear"
 alias refresh="source ~/.config/fish/config.fish"
 alias printAliases="cat ~/.config/fish/config.fish"
 alias cmdHistory="history" # cos im on fish but if i move to a different terminal emulator, change this to a different command
-
+alias ..="cd ../"
+alias ...="cd ../../"
 # System commands
 
 	# DISK
+
+function unzipAll
+    for f in *.zip
+        unzip "$f" -d (string replace -r '\.zip$' '' "$f")
+    end
+end
+
 alias viewSnapshots="sudo snapper list"
 alias viewSnapshotSettings="sudo snapper -c root get-config"
 alias listDisks="sudo lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL"
@@ -36,7 +44,6 @@ alias cleanSysten="removeOprhans && removePackageCache && removeTrash"
 
 alias diskUsage="ncdu"
 alias diskUsageFast="df -h"
-
 
 	# GPU
 alias gpuUsage="gpustat -i 1"
@@ -79,4 +86,4 @@ alias newKitty="~./Code/MassScripts/Linux/catWallpaper.sh noctalia"
 alias changeWallpaper="~/Code/MassScripts/Linux/changeWallpaper.sh /run/media/brandon/HDD/Wallpapers noctalia"
 alias changeWallpaperRandom="changeWallpaper -r"
 alias listAppImages="ls -d -1 ~/Programs/AppImages/**/*.AppImage"
-
+alias bedrock="./Programs/AppImages/bed*"
