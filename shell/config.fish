@@ -27,8 +27,43 @@ alias ...="cd ../../"
 	# DISK
 
 function unzipAll
-    for f in *.zip
-        unzip "$f" -d (string replace -r '\.zip$' '' "$f")
+    for f in *
+        if not test -f "$f"
+            continue
+        end
+
+        set -l ext ""
+        set -l dest_dir ""
+        set -l items
+
+        switch "$f"
+            case '*.zip'
+                set ext '.zip'
+                set dest_dir (string replace -r '\.zip$' '' "$f")
+                set items (unzip -Z1 "$f")
+            case '*.7z'
+                set ext '.7z'
+                set dest_dir (string replace -r '\.7z$' '' "$f")
+                set items (7z l -slt "$f" | string match -r '^Path = (.+)' | string replace -r '^Path = ' '')
+            case '*'
+                continue
+        end
+
+        if test (count $items) -eq 1
+            set target "."
+        else
+            set target "$dest_dir"
+            mkdir -p "$dest_dir"
+        end
+
+        switch "$ext"
+            case '.zip'
+                unzip "$f" -d "$target"
+            case '.7z'
+                7z x "$f" -o"$target" -y
+        end
+
+        rm "$f"
     end
 end
 
@@ -40,11 +75,12 @@ alias listCache="sudo du -sh * | sort -h"
 alias removeOrphans="sudo pacman -Rns (pacman -Qdtq)"
 alias removePackageCache="sudo pacman -Sc"
 alias removeTrash="rm -rf ~/.local/share/Trash"
-alias cleanSysten="removeOprhans && removePackageCache && removeTrash"
+alias cleanSystem="removeOrphans && removePackageCache && removeTrash"
 
 alias diskUsage="ncdu"
 alias diskUsageFast="df -h"
 
+alias listSymbolicDiskLinks="find ~ -type l -xtype d -ls"
 	# GPU
 alias gpuUsage="gpustat -i 1"
 
@@ -83,7 +119,7 @@ alias updateBedTime="updatePackages && bedTime"
 
 # MISC
 alias newKitty="~./Code/MassScripts/Linux/catWallpaper.sh noctalia"
-alias changeWallpaper="~/Code/MassScripts/Linux/changeWallpaper.sh /run/media/brandon/HDD/Wallpapers noctalia"
+alias changeWallpaper="~/Code/MassScripts/Linux/changeWallpaper.sh /mnt/HDD/Wallpapers noctalia"
 alias changeWallpaperRandom="changeWallpaper -r"
 alias listAppImages="ls -d -1 ~/Programs/AppImages/**/*.AppImage"
 alias bedrock="./Programs/AppImages/bed*"
