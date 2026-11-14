@@ -82,8 +82,8 @@ alias diskUsageFast="df -h"
 
 alias listSymbolicDiskLinks="find ~ -type l -xtype d -ls"
 	# GPU
-alias gpuUsage="gpustat -i 1"
-
+alias gpuUsageMinimal="gpustat -i 1"
+alias gpuUsage="nvtop"
 	# NETWORK
 alias rebootNetwork="sudo systemctl restart NetworkManager"
 alias isVPN="sudo systemctl status mullvad-daemon"

@@ -17,9 +17,9 @@ require("config.workspaces")
 hl.bind("SUPER + K", hl.dsp.exec_cmd("/home/brandon/Code/MassScripts/Linux/catWallpaper.sh noctalia"))
 
 
-hl.bind("SUPER + H", hl.dsp.exec_cmd("/home/brandon/Code/MassScripts/Linux/changeWallpaper.sh /run/media/brandon/HDD/Wallpapers noctalia"))
+hl.bind("SUPER + H", hl.dsp.exec_cmd("/home/brandon/Code/MassScripts/Linux/changeWallpaper.sh mnt/HDD/Wallpapers noctalia"))
 
-hl.bind("SUPER + G", hl.dsp.exec_cmd("/home/brandon/Code/MassScripts/Linux/changeWallpaper.sh /run/media/brandon/HDD/Wallpapers noctalia -r"))
+hl.bind("SUPER + G", hl.dsp.exec_cmd("/home/brandon/Code/MassScripts/Linux/changeWallpaper.sh mnt/HDD/Wallpapers noctalia -r"))
 
 
 hl.bind("SUPER + N", function()
