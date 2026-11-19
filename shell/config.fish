@@ -91,6 +91,7 @@ alias getDefaultGateway="ip r | grep ^def"
 alias getIPaddrs="ip address | grep -oP \"inet [0-9]{1,}[\.][0-9]{1,}[\.][0-9]{1,}[\.][0-9]{1,}\""
 alias getRouterMAC="nmcli device wifi list | grep -oP \"^\*\s+\K[a-zA-Z0-9]{2}(:[a-zA-Z0-9]{2}){5}\""
 alias listeningServices="ss -punat"
+alias startSSH="sudo systemctl enable --now sshd && echo \"IP is one of the following:\" && getIPaddrs && echo \"Username is:\" && echo $USER"
 
 	# SECURITY
 alias loginHistory="sudo journalctl -t gdm -t lightdm -t sshd -t sudo --since \"2 days ago\""
