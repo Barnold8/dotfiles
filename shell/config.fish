@@ -115,6 +115,7 @@ alias gitList="git ls-files . --exclude-standard --others"
 
 # Lazyness supplements
 alias bedTime="~/Code/MassScripts/Linux/bedtime.sh"
+alias bedtime="bedTime"
 alias gotoScripts="cd ~/Code/MassScripts/Linux"
 alias updateBedTime="updatePackages && bedTime"
 
